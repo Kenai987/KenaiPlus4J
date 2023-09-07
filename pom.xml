@@ -31,6 +31,8 @@
 		<commonsCodecVersion>1.15</commonsCodecVersion>
 		<pdfboxVersion>2.0.25</pdfboxVersion>
 		<fontboxVersion>2.0.25</fontboxVersion>
+		<poiVersion>5.2.0</poiVersion>
+		<Lang3Version>3.12.0</Lang3Version>
 	</properties>
 	
 	<!--管理子module依赖版本-->
@@ -77,6 +79,24 @@
 				<artifactId>fontbox</artifactId>
 				<version>${fontboxVersion}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poiVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poiVersion}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${Lang3Version}</version>
+			</dependency>
+		
 		</dependencies>
 	</dependencyManagement>
 
