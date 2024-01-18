@@ -33,8 +33,4 @@ public class RedisDao {
     public String get(String key) {
         return redisTemplate.opsForValue().get(key);
     }
-
-    public String getKey(String key) {
-        return redisTemplate.opsForValue().get(key);
-    }
 }
