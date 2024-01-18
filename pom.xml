@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.14</version>
+		<relativePath/>
+	</parent>
+	
+	<groupId>com.example</groupId>
+	<artifactId>KenaiPlus4J</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>KenaiPlus4J</name>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>common</module>
+		<module>dao</module>
+		<module>web</module>
+	</modules>
+	
+	<!--依赖版本声明-->
+	<properties>
+		<lombokVersion>1.18.12</lombokVersion>
+		<redisVersion>2.1.4.RELEASE</redisVersion>
+		<guavaVersion>32.1.1-jre</guavaVersion>
+		<fastJsonVersion>2.0.33</fastJsonVersion>
+		<hutoolVersion>5.8.25</hutoolVersion>
+		<commonsCodecVersion>1.15</commonsCodecVersion>
+		<pdfboxVersion>2.0.25</pdfboxVersion>
+		<fontboxVersion>2.0.25</fontboxVersion>
+		<poiVersion>5.2.0</poiVersion>
+		<Lang3Version>3.12.0</Lang3Version>
+		<aviatorVersion>5.3.0</aviatorVersion>
+		<log4j2Version>3.2.0</log4j2Version>
+		<log4jVersion>2.20.0</log4jVersion>
+
+
+	</properties>
+	
+	<!--管理子module依赖版本-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombokVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+				<version>${redisVersion}</version>
+			</dependency>
+<!--./mvn install:install-file -DgroupId=org.springframework.boot -DartifactId=spring-boot-starter-log4j2 -Dversion=3.2.0 -Dfile=/Users/libai/Downloads/spring-boot-starter-log4j2-3.2.0.jar -Dpackaging=jar -DgeneratePom=true-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-log4j2</artifactId>
+				<version>${log4j2Version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4jVersion}</version>
+			</dependency>
+<!--很坑,我自己引入了 log4j-core 2.20.0 有问题, 原来是poi引入 低版本log4j-api 导致, 把poi引入的排除掉,自己引入一下-->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4jVersion}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guavaVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.fastjson2</groupId>
+				<artifactId>fastjson2</artifactId>
+				<version>${fastJsonVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutoolVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commonsCodecVersion}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.pdfbox</groupId>
+				<artifactId>pdfbox</artifactId>
+				<version>${pdfboxVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.pdfbox</groupId>
+				<artifactId>fontbox</artifactId>
+				<version>${fontboxVersion}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poiVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poiVersion}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${Lang3Version}</version>
+			</dependency>
+
+			
+<!--			mvn install:install-file -DgroupId=com.googlecode.aviator -DartifactId=aviator -Dversion=5.3.0 -Dfile=/Users/libai/Downloads/aviator-5.3.0.jar -Dpackaging=jar -DgeneratePom=true
+-->
+			<dependency>
+				<groupId>com.googlecode.aviator</groupId>
+				<artifactId>aviator</artifactId>
+				<version>${aviatorVersion}</version>
+			</dependency>
+		
+		</dependencies>
+	</dependencyManagement>
+
+</project>
