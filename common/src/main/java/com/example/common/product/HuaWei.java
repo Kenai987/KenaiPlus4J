@@ -9,4 +9,9 @@ import lombok.Data;
 public class HuaWei extends Phone{
 
     private Integer meta;
+
+
+    public HuaWei(Integer meta) {
+        this.meta = meta;
+    }
 }
