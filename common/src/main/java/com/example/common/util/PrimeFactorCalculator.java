@@ -55,8 +55,7 @@ public class PrimeFactorCalculator {
                     }
                 }
                 return sum;
-            }
-            else {
+            } else {
                 long middle = (start + end) / 2;
                 PrimeFactorTask left = new PrimeFactorTask(number, start, middle);
                 PrimeFactorTask right = new PrimeFactorTask(number, middle + 1, end);

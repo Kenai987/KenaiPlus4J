@@ -6,12 +6,12 @@ import com.example.dao.redis.RedisDao;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +32,7 @@ class WebApplicationTests {
 
     @Test
     void logTest() {
-
+        System.out.println(new Date());
         List<HuaWei> huaWeiList = new ArrayList<>();
         huaWeiList.add(new HuaWei(1));
         huaWeiList.add(new HuaWei(21));
@@ -43,7 +43,6 @@ class WebApplicationTests {
         logger.info("我是info日志");
         logger.warn("我是warn日志");
         logger.error("我是error日志");
-
     }
 
 }

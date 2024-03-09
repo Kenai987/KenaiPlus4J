@@ -118,21 +118,18 @@ public class pdfUtils {
                             System.out.println("网上平移的Y坐标：" + JSON.toJSONString(floatY.floatValue()));
                             COSFloat floatYNew = new COSFloat(floatY.floatValue() - appendAreaHeight);
                             cosArrayNew.add(floatYNew);
-                        }
-                        else if (cosBaseY instanceof COSInteger) {
+                        } else if (cosBaseY instanceof COSInteger) {
                             COSInteger integerY = (COSInteger) cosArray.get(i);
                             System.out.println("网上平移的Y坐标：" + JSON.toJSONString(integerY.intValue()));
                             COSInteger integerYNew = COSInteger.get(integerY.intValue() - (long) appendAreaHeight);
                             cosArrayNew.add(integerYNew);
                         }
-                    }
-                    else {
+                    } else {
                         cosArrayNew.add(cosArray.get(i));
                     }
                 }
                 pageNewDict.setItem(cosBase.getKey(), cosArrayNew);
-            }
-            else {
+            } else {
                 pageNewDict.setItem(cosBase.getKey(), cosBase.getValue());
             }
         }

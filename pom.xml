@@ -36,6 +36,9 @@
 		<aviatorVersion>5.3.0</aviatorVersion>
 		<log4j2Version>3.2.0</log4j2Version>
 		<log4jVersion>2.20.0</log4jVersion>
+		<oshiCore>6.4.0</oshiCore>
+		<itext7.version>7.1.15</itext7.version>
+		<zxingVersion>3.4.0</zxingVersion>
 
 
 	</properties>
@@ -129,7 +132,78 @@
 				<artifactId>aviator</artifactId>
 				<version>${aviatorVersion}</version>
 			</dependency>
-		
+
+			<dependency>
+				<groupId>com.github.oshi</groupId>
+				<artifactId>oshi-core</artifactId>
+				<version>${oshiCore}</version>
+			</dependency>
+
+
+			<!-- iText7 Start -->
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>kernel</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>io</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>layout</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>forms</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>pdfa</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>sign</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>barcodes</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>font-asian</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>hyph</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>styled-xml-parser</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>svg</artifactId>
+				<version>${itext7.version}</version>
+			</dependency>
+			<!-- iText7 End -->
+
+
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>javase</artifactId>
+				<version>${zxingVersion}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

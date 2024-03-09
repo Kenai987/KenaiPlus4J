@@ -31,7 +31,7 @@ public class ExcelUtil {
     public static void main(String[] args) {
 //        copyExcel();
         // 解析
-         parseCustomExcel();
+        parseCustomExcel();
         // 生成自定义字段excel
         // creatCustomExcel();
     }
@@ -43,7 +43,8 @@ public class ExcelUtil {
             Workbook workbook = new XSSFWorkbook(inputStream);
 
             // 获取工作表
-            Sheet sheet = workbook.getSheetAt(0); // 假设导入模板在第一个工作表中
+            // 假设导入模板在第一个工作表中
+            Sheet sheet = workbook.getSheetAt(0);
 
             // 获取表头行
             Row headerRow = sheet.getRow(0);
@@ -75,18 +76,17 @@ public class ExcelUtil {
                     if (cell != null) {
                         if (cell.getCellType() == CellType.STRING) {
                             rowData.add(cell.getStringCellValue());
-                        }
-                        else if (cell.getCellType() == CellType.NUMERIC) {
+                        } else if (cell.getCellType() == CellType.NUMERIC) {
                             // 将数值转换为字符串并添加到rowData中
                             rowData.add(BigDecimal.valueOf(cell.getNumericCellValue()).stripTrailingZeros().toPlainString());
-                        }
-                        else {
+                        } else {
                             // 处理其他类型的单元格，例如日期等
-                            rowData.add(""); // 这里可以根据需要进行处理
+                            // 这里可以根据需要进行处理
+                            rowData.add("");
                         }
-                    }
-                    else {
-                        rowData.add(""); // 如果单元格为空，添加空字符串
+                    } else {
+                        // 如果单元格为空，添加空字符串
+                        rowData.add("");
                     }
                 }
 
@@ -130,7 +130,8 @@ public class ExcelUtil {
 
         // 创建一个表头行
         Row headerRow = sheet.createRow(0);
-        headerRow.setHeightInPoints(50); // 设置行高为30个点
+        // 设置行高为30个点
+        headerRow.setHeightInPoints(50);
 
         // 创建样式并应用于表头
         CellStyle headerStyle = workbook.createCellStyle();
@@ -159,9 +160,10 @@ public class ExcelUtil {
         sheet.autoSizeColumn(0);
 
         // 添加其他可能的字段列（不固定列）并应用样式，你可以根据需要添加更多列
-        String[] possibleFields = { "A", "B", "C", "G", "F", "H" };
+        String[] possibleFields = {"A", "B", "C", "G", "F", "H"};
         for (int i = 0; i < possibleFields.length; i++) {
-            Cell fieldHeaderCell = headerRow.createCell(i + 1); // 从第二列开始
+            // 从第二列开始
+            Cell fieldHeaderCell = headerRow.createCell(i + 1);
             fieldHeaderCell.setCellValue(possibleFields[i]);
             fieldHeaderCell.setCellStyle(headerStyle);
             sheet.autoSizeColumn(i + 1);
@@ -185,7 +187,8 @@ public class ExcelUtil {
             Workbook workbook = new XSSFWorkbook(inputStream);
 
             // 获取工作表
-            Sheet sheet = workbook.getSheetAt(0); // 假设导入模板在第一个工作表中
+            // 假设导入模板在第一个工作表中
+            Sheet sheet = workbook.getSheetAt(0);
 
             // 获取表头行
             Row headerRow = sheet.getRow(0);
@@ -212,12 +215,10 @@ public class ExcelUtil {
                         int endIndex = starIndex + 1;
                         richText.applyFont(starIndex, endIndex, headerFont);
                         newCell.setCellValue(richText);
-                    }
-                    else {
+                    } else {
                         newCell.setCellValue(oldCell.getStringCellValue());
                     }
-                }
-                else {
+                } else {
 
                     if (oldCell != null) {
                         newCell.setCellValue(oldCell.getStringCellValue());
@@ -244,17 +245,15 @@ public class ExcelUtil {
                     if (oldCell != null) {
                         if (oldCell.getCellType() == CellType.STRING) {
                             newCell.setCellValue(oldCell.getStringCellValue());
-                        }
-                        else if (oldCell.getCellType() == CellType.NUMERIC) {
+                        } else if (oldCell.getCellType() == CellType.NUMERIC) {
                             newCell.setCellValue(oldCell.getNumericCellValue());
-                        }
-                        else {
+                        } else {
                             // 处理其他类型的单元格，例如日期等
                             // 这里可以根据需要进行处理
                         }
-                    }
-                    else {
-                        newCell.setCellValue(""); // 如果单元格为空，添加空字符串
+                    } else {
+                        // 如果单元格为空，添加空字符串
+                        newCell.setCellValue("");
                     }
                 }
             }

@@ -1,4 +1,5 @@
 package com.example.common.util;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -9,23 +10,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author libai
+ */
 public class DrawTableInPDF {
+
+    /**
+     * 每英寸用户空间单位
+     */
+    private static final float POINTS_PER_INCH = 72;
+
+    /**
+     * 每毫米用户空间单位
+     */
+    private static final float POINTS_PER_MM = 1 / (10 * 2.54f) * POINTS_PER_INCH;
+
     public static void main(String[] args) {
         try {
-
-            List<String> strings = new ArrayList<>();
-            strings.add("a");
-            strings.add("v");
-            strings.add("vc");
-            strings = strings.subList(2,strings.size());
-            System.out.println(strings);
             PDDocument document = new PDDocument();
-            PDPage page = new PDPage(PDRectangle.A4);
+            PDPage page = new PDPage(new PDRectangle(100 * POINTS_PER_MM, 100 * POINTS_PER_MM));
             document.addPage(page);
-
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
-            String[] dataArray = {"Row 1, Col 1", "Row 1, Col 2", "Row 2, Col 1","12", "Row 2, Col 2"};
+            String[] dataArray = {"Row 1, Col 1", "Row 1, Col 2", "Row 2, Col 1", "12", "Row 2, Col 2"};
 
             float margin = 50;
             float yStart = page.getMediaBox().getHeight() - margin;
@@ -80,7 +87,7 @@ public class DrawTableInPDF {
 
             contentStream.close();
 
-            document.save("table.pdf");
+            document.save("table4.pdf");
             document.close();
         } catch (IOException e) {
             e.printStackTrace();

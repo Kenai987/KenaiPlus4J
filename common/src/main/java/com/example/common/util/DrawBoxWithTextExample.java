@@ -26,8 +26,10 @@ public class DrawBoxWithTextExample {
             PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND,
                     false, true);
 
-            float boxX = 100;   // X-coordinate of the box's top-left corner
-            float boxY = 500;   // Y-coordinate of the box's top-left corner
+            // X-coordinate of the box's top-left corner
+            float boxX = 100;
+            // Y-coordinate of the box's top-left corner
+            float boxY = 500;
             float boxWidth = 120;
             float boxHeight = 60;
 
@@ -78,9 +80,11 @@ public class DrawBoxWithTextExample {
             contentStream.setFont(font, 12);
             contentStream.setNonStrokingColor(Color.BLACK);
 
-            String[] textLines = { "ÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧ", "ŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſƀƁƂƃƄƅƆƇƈƉƊƋƌƍƎƏƐƑƒƓƔƕƖƗƘƙƚƛƜƝƞƟƠơƢƣƤƥƦƧƨƩƪƫƬƭƮƯưƱƲƳƴƵƶƷƸƹƺƻƼƽƾƿǀǁǂǃǄǅǆǇǈǉǊǋǌǍǎǏǐǑǒǓǔǕǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿ" };
-            float textX = boxX + 5;   // X-coordinate for text
-            float textY = boxY + 60 - 10;  // Y-coordinate for text
+            String[] textLines = {"ÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧ", "ŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſƀƁƂƃƄƅƆƇƈƉƊƋƌƍƎƏƐƑƒƓƔƕƖƗƘƙƚƛƜƝƞƟƠơƢƣƤƥƦƧƨƩƪƫƬƭƮƯưƱƲƳƴƵƶƷƸƹƺƻƼƽƾƿǀǁǂǃǄǅǆǇǈǉǊǋǌǍǎǏǐǑǒǓǔǕǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿ"};
+            // X-coordinate for text
+            float textX = boxX + 5;
+            // Y-coordinate for text
+            float textY = boxY + 60 - 10;
 
             for (String text : textLines) {
 //                float textWidth = PDType1Font.HELVETICA.getStringWidth(text) / 1000 * 12;
@@ -99,7 +103,8 @@ public class DrawBoxWithTextExample {
                 contentStream.showText(text);
                 contentStream.endText();
 
-                textY -= 12 * 0.75f;  // Move to the next line
+                // Move to the next line
+                textY -= 12 * 0.75f;
                 textY -= 12 * 1.2f * 0.75f;
                 if (textY < 500) {
                     break;

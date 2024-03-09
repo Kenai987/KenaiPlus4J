@@ -24,21 +24,23 @@ public class IteUtil {
             // 3584 - 3711
             // 7680 - 7935
             // 8192 - 8207
-            if ((a >= 0x0E00 && a <= 0x0E7F) || (a >= 0x1E00 && a <= 0x1EFF) // 拉丁文扩展
-                    || (a >= 0x2000 && a <= 0x200F) // 零宽字符
+            // 拉丁文扩展
+            if ((a >= 0x0E00 && a <= 0x0E7F) || (a >= 0x1E00 && a <= 0x1EFF)
+                    // 零宽字符
+                    || (a >= 0x2000 && a <= 0x200F)
                     || a >= 32 && a <= 126
-            ){
+            ) {
 
-            }else {
+            } else {
                 System.out.println(a);
                 res.add((long) a);
                 System.out.println((long) a);
             }
         }
         System.out.println(res.stream().sorted().collect(Collectors.toList()));
-        StringBuilder str1 =  new StringBuilder();
-        for (int i = 255; i <= 511 ; i++) {
-            str1.append((char)i);
+        StringBuilder str1 = new StringBuilder();
+        for (int i = 255; i <= 511; i++) {
+            str1.append((char) i);
         }
         System.out.println(str1.toString());
     }

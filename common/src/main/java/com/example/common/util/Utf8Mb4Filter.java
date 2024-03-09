@@ -17,8 +17,7 @@ public class Utf8Mb4Filter {
             int codePoint = str.codePointAt(i);
             if (codePoint < LAST_BMP) {
                 sb.appendCodePoint(codePoint);
-            }
-            else {
+            } else {
                 i++;
             }
         }

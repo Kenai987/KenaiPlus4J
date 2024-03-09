@@ -52,7 +52,7 @@ public class heapUtil {
         // 初始化小顶堆
         Queue<Integer> minHeap = new PriorityQueue<>();
         // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-        Queue<Integer> maxHeap = new PriorityQueue<>((a, b) ->  a -b);
+        Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> a - b);
 
         /* 元素入堆 */
         maxHeap.offer(1);

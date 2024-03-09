@@ -6,10 +6,13 @@ import org.apache.commons.codec.digest.HmacUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @author libai
  */
+// 开启异步返回
+@EnableAsync   
 // 默认只扫描启动类所在的包及其子包
 @SpringBootApplication
 // 扩展并覆盖SpringBootApplication 扩展到多module
